@@ -11,7 +11,6 @@ export default function Home() {
   const [menu, setMenu] = useState<string>("");
   useEffect(() => {
     if (data) {
-      console.log(Object.values(data));
       setMenuList(["랜덤", ...Object.keys(data)]);
     }
   }, [data]);
@@ -25,14 +24,13 @@ export default function Home() {
           arr.push(dataArr[i][j]);
         }
       }
-      console.log(arr);
       setMenu(arr[Math.floor(Math.random() * arr.length)]);
     } else setMenu(data[type][Math.floor(Math.random() * data[type].length)]);
   };
   return (
     <main className={styles.main}>
       <h1>오늘 점심 뭐먹지? 🤔</h1>
-      <Image src={jumpJeans} alt={"점프진스"} />
+      <Image src={jumpJeans} alt={"점프진스"} priority />
       {isLoading ? (
         <p>로딩 중...</p>
       ) : error ? (

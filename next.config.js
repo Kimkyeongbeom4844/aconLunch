@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  env: {
+    DOMAIN: "https://acon-lunch.vercel.app",
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
