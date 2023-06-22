@@ -19,7 +19,28 @@
   padding: 5px 10px;
   border-radius: 5px;
 }
+.button:disabled {
+  opacity: 0.6;
+}
+.button:disabled:hover {
+  cursor: not-allowed;
+}
 .button:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+.gromit {
+  position: fixed;
+  bottom: 0;
+  right: 100%;
+  animation: gromitAni ease-in-out 2s infinite alternate;
+}
+
+@keyframes gromitAni {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
 }
