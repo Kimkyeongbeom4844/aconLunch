@@ -69,7 +69,6 @@ export default function Home() {
       <Image
         src={gromit}
         alt={"월레스와 그로밋"}
-        priority
         className={styles.gromit}
         onLoad={() => setShowGromit(true)}
         style={{
