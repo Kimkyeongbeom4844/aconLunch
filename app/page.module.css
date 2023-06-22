@@ -32,15 +32,16 @@
 .gromit {
   position: fixed;
   bottom: 0;
-  right: 100%;
+  opacity: 0;
   animation: gromitAni ease-in-out 2s infinite alternate;
 }
 
 @keyframes gromitAni {
   from {
-    right: 100%;
+    left: 0%;
   }
   to {
-    right: 0%;
+    left: 100%;
+    transform: translateX(-100%);
   }
 }

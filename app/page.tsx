@@ -74,6 +74,8 @@ export default function Home() {
         style={{
           zIndex: -1,
           animationPlayState: showGromit ? "running" : "paused",
+          opacity: showGromit ? 1 : 0,
+          transition: "2s",
         }}
       />
     </main>
