@@ -10,6 +10,7 @@
   margin: 10px 0;
   align-self: normal;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 .button {
@@ -31,7 +32,9 @@
 }
 .gromit {
   position: fixed;
+  height: auto;
   bottom: 0;
+  width: 33%;
   opacity: 0;
   animation: gromitAni ease-in-out 2s infinite alternate;
 }
