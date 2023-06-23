@@ -14,14 +14,14 @@ export default function Home() {
   const [showGromit, setShowGromit] = useState(false);
   useEffect(() => {
     if (data) {
-      setMenuList(["랜덤", ...Object.keys(data)]);
+      setMenuList(["🎲랜덤🎲", ...Object.keys(data)]);
     }
   }, [data]);
   const onClickGetMenuButton = (e: React.MouseEvent<any>) => {
     setIsClickButton((v) => true);
     let timer: NodeJS.Timeout | null = null;
     const { type } = e.currentTarget.dataset;
-    if (type === "랜덤") {
+    if (type === "🎲랜덤🎲") {
       const arr: string[] = [];
       const dataArr: string[][] = Object.values(data);
       for (let i = 0; i < dataArr.length; i++) {
