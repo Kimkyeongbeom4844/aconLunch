@@ -3,7 +3,6 @@
 ## 🔎Introduce
 
 ```json
-// whatMenu.json
 {
   "???": "오늘 점심 뭐 먹죠?ㅎ.."
 }
