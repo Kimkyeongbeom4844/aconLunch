@@ -16,7 +16,7 @@
 Next13
 RTK
 RTK Query
-typescript
+TypeScript
 ```
 
 ## 🚀 Deploy
