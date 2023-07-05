@@ -18,7 +18,7 @@ export default function Home() {
     }
   }, [data]);
   const onClickGetMenuButton = (e: React.MouseEvent<any>) => {
-    setIsClickButton((v) => true);
+    setIsClickButton(true);
     let timer: NodeJS.Timeout | null = null;
     const { type } = e.currentTarget.dataset;
     if (type === "🎲랜덤🎲") {
@@ -26,6 +26,7 @@ export default function Home() {
       const dataArr: string[][] = Object.values(data);
       for (let i = 0; i < dataArr.length; i++) {
         for (let j = 0; j < dataArr[i].length; j++) {
+          if (data["🍩디저트🍩"].includes(dataArr[i][j])) continue;
           arr.push(dataArr[i][j]);
         }
       }
@@ -39,7 +40,7 @@ export default function Home() {
     }
     setTimeout(() => {
       if (timer) clearTimeout(timer);
-      setIsClickButton((v) => false);
+      setIsClickButton(false);
     }, 1500);
   };
   return (
