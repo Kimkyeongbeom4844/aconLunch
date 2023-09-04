@@ -24,7 +24,7 @@ export default function Home() {
         setMenu(result);
       }, time);
     },
-    [setMenu]
+    [menu]
   );
   const onClickGetMenuButton = (e: React.MouseEvent<any>) => {
     setIsClickButton(true);
