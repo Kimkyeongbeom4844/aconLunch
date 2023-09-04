@@ -4,7 +4,7 @@ import jumpJeans from "@/public/jumpJeans.gif";
 import gromit from "@/public/gromit.png";
 import styles from "./page.module.css";
 import { useGetMenuListQuery } from "@/stores/services/menuList";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
   const { data, isLoading, error } = useGetMenuListQuery(null);
@@ -17,6 +17,15 @@ export default function Home() {
       setMenuList(["🎲랜덤🎲", ...Object.keys(data)]);
     }
   }, [data]);
+  const menuLoadEffect = useCallback(
+    (target: string[], time: number) => {
+      return setInterval(() => {
+        const result = target[Math.floor(Math.random() * target.length)];
+        setMenu(result);
+      }, time);
+    },
+    [setMenu]
+  );
   const onClickGetMenuButton = (e: React.MouseEvent<any>) => {
     setIsClickButton(true);
     let timer: NodeJS.Timeout | null = null;
@@ -30,13 +39,9 @@ export default function Home() {
           arr.push(dataArr[i][j]);
         }
       }
-      timer = setInterval(() => {
-        setMenu(arr[Math.floor(Math.random() * arr.length)]);
-      }, 77);
+      timer = menuLoadEffect(arr, 77);
     } else {
-      timer = setInterval(() => {
-        setMenu(data[type][Math.floor(Math.random() * data[type].length)]);
-      }, 77);
+      timer = menuLoadEffect(data[type], 77);
     }
     setTimeout(() => {
       if (timer) clearTimeout(timer);
@@ -71,12 +76,10 @@ export default function Home() {
         src={gromit}
         alt={"월레스와 그로밋"}
         className={styles.gromit}
-        onLoad={() => setShowGromit(true)}
+        onLoadingComplete={() => setShowGromit(true)}
         style={{
-          zIndex: -1,
           animationPlayState: showGromit ? "running" : "paused",
           opacity: showGromit ? 1 : 0,
-          transition: "2s",
         }}
       />
     </main>
