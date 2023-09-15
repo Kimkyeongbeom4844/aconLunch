@@ -53,6 +53,7 @@ export default function Home() {
   };
 
   const onClickGromitImage = () => {
+    alert("축하합니다! 찾았습니다 😊");
     const $a = document.createElement("a");
     if (typeof process.env.GROMIT === "string") {
       $a.href = process.env.GROMIT;
@@ -87,6 +88,7 @@ export default function Home() {
       <h2>{menu}</h2>
       <Image
         src={gromit}
+        title="동쪽그로밋"
         alt={"월레스와 그로밋"}
         className={styles.gromit}
         onLoadingComplete={() => setShowGromit(true)}
