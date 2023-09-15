@@ -12,11 +12,13 @@ export default function Home() {
   const [menu, setMenu] = useState<string>("");
   const [isClickButton, setIsClickButton] = useState(false);
   const [showGromit, setShowGromit] = useState(false);
+
   useEffect(() => {
     if (data) {
       setMenuList(["🎲랜덤🎲", ...Object.keys(data)]);
     }
   }, [data]);
+
   const menuLoadEffect = useCallback(
     (target: string[], time: number) => {
       return setInterval(() => {
@@ -26,6 +28,7 @@ export default function Home() {
     },
     [menu]
   );
+
   const onClickGetMenuButton = (e: React.MouseEvent<any>) => {
     setIsClickButton(true);
     let timer: NodeJS.Timeout | null = null;
@@ -48,6 +51,16 @@ export default function Home() {
       setIsClickButton(false);
     }, 1500);
   };
+
+  const onClickGromitImage = () => {
+    const $a = document.createElement("a");
+    if (typeof process.env.GROMIT === "string") {
+      $a.href = process.env.GROMIT;
+    }
+    $a.target = "_blank";
+    $a.click();
+  };
+
   return (
     <main className={styles.main}>
       <h1>오늘 점심 뭐먹지? 🤔</h1>
@@ -77,6 +90,7 @@ export default function Home() {
         alt={"월레스와 그로밋"}
         className={styles.gromit}
         onLoadingComplete={() => setShowGromit(true)}
+        onClick={onClickGromitImage}
         style={{
           animationPlayState: showGromit ? "running" : "paused",
           opacity: showGromit ? 1 : 0,

@@ -41,6 +41,9 @@
   z-index: -1;
   transition: 2s;
 }
+.gromit:hover {
+  cursor: pointer;
+}
 
 @keyframes gromitAni {
   from {
